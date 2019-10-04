@@ -4,6 +4,9 @@
     <MeCabPackageContentPath Condition="'$(MeCabPackageContentPath)' == ''">$([System.IO.Path]::Combine('$(MSBuildThisFileDirectory)','..','content'))</MeCabPackageContentPath>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="$(MeCabPackageContentPath)\dic\*.*" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="$(MeCabPackageContentPath)\dic\*.*">
+      <Link>dic\%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>
