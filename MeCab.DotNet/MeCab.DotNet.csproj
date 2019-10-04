@@ -36,7 +36,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="dic\*.*" CopyToOutputDirectory="PreserveNewest" PackagePath="content/" IncludeInPackage="True" />
+    <Content Include="dic\*.*" CopyToOutputDirectory="PreserveNewest" PackagePath="content/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="build\*.*" CopyToOutputDirectory="PreserveNewest" PackagePath="build/" />
+    <Content Include="buildMultiTargeting\*.*" CopyToOutputDirectory="PreserveNewest" PackagePath="buildMultiTargeting/" />
   </ItemGroup>
 
 </Project>
