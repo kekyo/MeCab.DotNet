@@ -1,4 +1,5 @@
-MeCab.DotNet was ported from NMeCab and originated from MeCab by Tsuyoshi Komuta,
+MeCab.DotNet was ported from NMeCab by Kouji Matsui (@kozy_kekyo, @kekyo2)
+and ported from MeCab by Tsuyoshi Komuta,
 and is released under any of the GPL (see the file LICENSE) or the LGPL (see the file LGPL).
 
 MeCab is copyrighted free software by Taku Kudo <taku@chasen.org> and

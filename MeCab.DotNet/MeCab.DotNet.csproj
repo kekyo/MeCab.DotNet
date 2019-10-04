@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net20;net35;net40;net45;netstandard1.3;netstandard2.0;netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>net40;net45;netstandard1.3;netstandard2.0;netstandard2.1</TargetFrameworks>
     <RootNamespace>NMeCab</RootNamespace>
 
     <DebugType>pdbonly</DebugType>
@@ -14,15 +14,16 @@
     <AssemblyTitle>MeCab.DotNet - Morphological analysis engine for .NET Core 1/2/3 and .NET Frameworks managed library.</AssemblyTitle>
     <Product>MeCab.DotNet</Product>
     <Trademark>MeCab.DotNet</Trademark>
-    <Copyright>Copyright (c) 2001-2008, Taku Kudo, Copyright (c) 2004-2008, Nippon Telegraph and Telephone Corporation, Portions Copyright (c) 2019 Kouji Matsui</Copyright>
+    <Copyright>Copyright (c) 2001-2008, Taku Kudo; Copyright (c) 2004-2008, Nippon Telegraph and Telephone Corporation; Copyright (c) 2015 Tsuyoshi Komuta; Portions Copyright (c) 2019 Kouji Matsui</Copyright>
     <Description>MeCab.DotNet - Morphological analysis engine for .NET Core 1/2/3 and .NET Frameworks managed library.</Description>
-    <Company>Kouji Matsui (@kozy_kekyo)</Company>
-    <Authors>Kouji Matsui (@kozy_kekyo)</Authors>
+    <Company>Nippon Telegraph and Telephone Corporation</Company>
+    <Authors>Taku Kudo; Tsuyoshi Komuta; Kouji Matsui (@kozy_kekyo)</Authors>
     <RepositoryType>git</RepositoryType>
-    <PackageLicenseExpression>LGPL</PackageLicenseExpression>
+    <PackageLicenseExpression>GPL-2.0-only OR LGPL-2.1-only</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/kekyo/MeCab.DotNet.git</PackageProjectUrl>
     <RepositoryUrl>https://github.com/kekyo/MeCab.DotNet.git</RepositoryUrl>
     <PackageTags>mecab;morphological;analysis</PackageTags>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,7 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="dic\*.*" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="dic\*.*" CopyToOutputDirectory="PreserveNewest" PackagePath="content/" IncludeInPackage="True" />
   </ItemGroup>
 
 </Project>
