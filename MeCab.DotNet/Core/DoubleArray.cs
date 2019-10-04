@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-#if MMF_DIC
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
 using System.IO.MemoryMappedFiles;
 #endif
 
@@ -33,7 +33,7 @@ namespace NMeCab.Core
 
         public const int UnitSize = sizeof(int) + sizeof(uint);
 
-#if MMF_DIC
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
 
         private MemoryMappedViewAccessor accessor;
 
@@ -67,7 +67,7 @@ namespace NMeCab.Core
 
         #region Open
 
-#if MMF_DIC
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
 
         public void Open(MemoryMappedFile mmf, long offset, long size)
         {
@@ -183,7 +183,7 @@ namespace NMeCab.Core
 
         private int ReadBase(int pos)
         {
-#if MMF_DIC
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
             return this.accessor.ReadInt32(pos * UnitSize);
 #else
             return this.array[pos].Base;
@@ -192,7 +192,7 @@ namespace NMeCab.Core
 
         private void ReadUnit(int pos, out Unit unit)
         {
-#if MMF_DIC
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
             this.accessor.Read<Unit>(pos * UnitSize, out unit);
 #else
             unit = this.array[pos];
@@ -217,7 +217,7 @@ namespace NMeCab.Core
 
             if (disposing)
             {
-#if MMF_DIC
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
                 if (this.accessor != null) this.accessor.Dispose();
 #endif
             }

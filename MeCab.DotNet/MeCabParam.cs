@@ -74,10 +74,9 @@ namespace NMeCab
             this.Theta = MeCabParam.DefaultTheta;
             this.RcFile = MeCabParam.DefaultRcFile;
 
-            Properties.Settings settings = Properties.Settings.Default;
-            this.DicDir = settings.DicDir;
-            this.UserDic = this.SplitStringArray(settings.UserDic, ',');
-            this.OutputFormatType = settings.OutputFormatType;
+            this.DicDir = "dic";
+            this.UserDic = new string[0];
+            this.OutputFormatType = "lattice";
         }
 
         public void LoadDicRC()
@@ -93,18 +92,6 @@ namespace NMeCab
 
             this.CostFactor = int.Parse(ini["cost-factor"] ?? "0");
             this.BosFeature = ini["bos-feature"];
-        }
-
-        private string[] SplitStringArray(string configStr, char separator)
-        {
-            if (string.IsNullOrEmpty(configStr)) return new string[0];
-
-            string[] ret = configStr.Split(separator);
-
-            for (int i = 0; i < ret.Length; i++)
-                ret[i] = ret[i].Trim();
-
-            return ret;
         }
     }
 }

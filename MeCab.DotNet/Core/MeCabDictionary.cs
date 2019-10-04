@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-#if MMF_DIC
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
 using System.IO.MemoryMappedFiles;
 #endif
 
@@ -19,7 +19,7 @@ namespace NMeCab.Core
         private const uint DictionaryMagicID = 0xEF718F77u;
         private const uint DicVersion = 102u;
 
-#if MMF_DIC
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
         private MemoryMappedFile mmf;
         private MemoryMappedViewAccessor tokens;
         private MemoryMappedViewAccessor features;
@@ -71,8 +71,7 @@ namespace NMeCab.Core
 
         #region Open
 
-#if MMF_DIC
-
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
         public void Open(string filePath)
         {
             this.mmf = MemoryMappedFile.CreateFromFile(filePath, FileMode.Open,
@@ -116,9 +115,7 @@ namespace NMeCab.Core
                 this.features = mmf.CreateViewAccessor(offset, fSize, MemoryMappedFileAccess.Read);
             }
         }
-
 #else
-
         public void Open(string filePath)
         {
             this.FileName = filePath;
@@ -167,9 +164,9 @@ namespace NMeCab.Core
 
 #endif
 
-        #endregion
+#endregion
 
-        #region Search
+#region Search
 
         public unsafe DoubleArray.ResultPair ExactMatchSearch(string key)
         {
@@ -214,15 +211,15 @@ namespace NMeCab.Core
             return n;
         }
 
-        #endregion
+#endregion
 
-        #region Get Infomation
+#region Get Infomation
 
         public unsafe Token[] GetToken(DoubleArray.ResultPair n)
         {
             Token[] dist = new Token[0xFF & n.Value];
             int tokenPos = n.Value >> 8;
-#if MMF_DIC
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
             this.tokens.ReadArray<Token>(tokenPos * sizeof(Token), dist, 0, dist.Length);
 #else
             Array.Copy(this.tokens, tokenPos, dist, 0, dist.Length);
@@ -235,9 +232,9 @@ namespace NMeCab.Core
             return StrUtils.GetString(this.features, (long)featurePos, this.encoding);
         }
 
-        #endregion
+#endregion
 
-        #region etc.
+#region etc.
 
         public bool IsCompatible(MeCabDictionary d)
         {
@@ -247,9 +244,9 @@ namespace NMeCab.Core
                     this.CharSet == d.CharSet);
         }
 
-        #endregion
+#endregion
 
-        #region Dispose
+#region Dispose
 
         private bool disposed;
 
@@ -269,7 +266,7 @@ namespace NMeCab.Core
             if (disposing)
             {
                 if (this.da != null) this.da.Dispose();
-#if MMF_DIC
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
                 if (this.mmf != null) this.mmf.Dispose();
                 if (this.tokens != null) this.tokens.Dispose();
                 if (this.features != null) this.features.Dispose();
@@ -284,6 +281,6 @@ namespace NMeCab.Core
             this.Dispose(false);
         }
 
-        #endregion
+#endregion
     }
 }

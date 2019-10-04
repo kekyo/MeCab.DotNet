@@ -29,8 +29,11 @@ namespace NMeCab.Core
 
         public void Load(string fileName, Encoding encoding)
         {
-            using (TextReader reader = new StreamReader(fileName, encoding))
+            using (var fs = new FileStream(fileName, FileMode.Open, FileAccess.ReadWrite, FileShare.Read))
+            {
+                TextReader reader = new StreamReader(fs, encoding);
                 this.Load(reader, fileName);
+            }
         }
 
         public void Load(TextReader reader, string fileName = null)

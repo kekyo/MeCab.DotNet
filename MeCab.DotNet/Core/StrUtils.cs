@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-#if MMF_DIC
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
 using System.IO.MemoryMappedFiles;
 #endif
 
@@ -71,7 +71,7 @@ namespace NMeCab.Core
             }
         }
 
-#if MMF_DIC
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
 
         /// <summary>
         /// MemoryMappedViewAccessorから終端が\0で表された文字列を取り出す。

@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-#if MMF_MTX
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
 using System.IO.MemoryMappedFiles;
 #endif
 
@@ -18,7 +18,7 @@ namespace NMeCab.Core
 
         private const string MatrixFile = "matrix.bin";
 
-#if MMF_MTX
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
         private MemoryMappedFile mmf;
         private MemoryMappedViewAccessor matrix;
 #else
@@ -39,8 +39,7 @@ namespace NMeCab.Core
             this.Open(fileName);
         }
 
-#if MMF_MTX
-
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
         public void Open(string fileName)
         {
             //MMFインスタンスを生成するが、後でDisposeするために保持しておく
@@ -65,7 +64,6 @@ namespace NMeCab.Core
         }
 
 #else
-
         public void Open(string fileName)
         {
             using (FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read))
@@ -89,27 +87,26 @@ namespace NMeCab.Core
             if (reader.BaseStream.ReadByte() != -1)
                 throw new MeCabInvalidFileException("file size is invalid", fileName);
         }
-
 #endif
 
-        #endregion
+#endregion
 
-        #region Cost
+#region Cost
 
         public int Cost(MeCabNode lNode, MeCabNode rNode)
         {
             int pos = lNode.RCAttr + this.LSize * rNode.LCAttr;
 
-#if MMF_MTX
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
             return this.matrix.ReadInt16(pos * sizeof(short)) + rNode.WCost;
 #else
             return this.matrix[pos] + rNode.WCost;
 #endif
         }
 
-        #endregion
+#endregion
 
-        #region Dispose
+#region Dispose
 
         private bool disposed;
 
@@ -128,7 +125,7 @@ namespace NMeCab.Core
 
             if (disposing)
             {
-#if MMF_MTX
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
                 if (this.mmf != null) this.mmf.Dispose();
                 if (this.matrix != null) this.matrix.Dispose();
 #endif
@@ -142,6 +139,6 @@ namespace NMeCab.Core
             Dispose(false);
         }
 
-        #endregion
+#endregion
     }
 }

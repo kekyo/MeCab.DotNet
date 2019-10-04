@@ -1,99 +1,62 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{3EE156E1-FEDE-4EC5-B64A-3287EC3AB2E3}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFrameworks>net20;net35;net40;net45;netstandard1.3;netstandard2.0;netstandard2.1</TargetFrameworks>
     <RootNamespace>NMeCab</RootNamespace>
-    <AssemblyName>MeCab.DotNet</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>
-    </DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
+    <Platforms>AnyCPU</Platforms>
+    <LangVersion>8.0</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+    <PackageId>MeCab.DotNet</PackageId>
+    <AssemblyTitle>MeCab.DotNet - Morphological analysis engine for .NET Core 1/2/3 and .NET Frameworks managed library.</AssemblyTitle>
+    <Product>MeCab.DotNet</Product>
+    <Trademark>MeCab.DotNet</Trademark>
+    <Copyright>Copyright (c) 2001-2008, Taku Kudo, Copyright (c) 2004-2008, Nippon Telegraph and Telephone Corporation, Portions Copyright (c) 2019 Kouji Matsui</Copyright>
+    <Description>MeCab.DotNet - Morphological analysis engine for .NET Core 1/2/3 and .NET Frameworks managed library.</Description>
+    <Company>Kouji Matsui (@kozy_kekyo)</Company>
+    <Authors>Kouji Matsui (@kozy_kekyo)</Authors>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>LGPL</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/kekyo/MeCab.DotNet.git</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/kekyo/MeCab.DotNet.git</RepositoryUrl>
+    <PackageTags>mecab;morphological;analysis</PackageTags>
   </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
+    <PackageReference Include="CenterCLR.RelaxVersioner" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="Core\BitUtils.cs" />
-    <Compile Include="Core\Connector.cs" />
-    <Compile Include="Core\NBestGenerator.cs" />
-    <Compile Include="Core\IniParser.cs" />
-    <Compile Include="Core\PriorityQueue.cs" />
-    <Compile Include="Core\StrUtils.cs" />
-    <Compile Include="Core\Writer.cs" />
-    <Compile Include="Extension\FeatureExtension.cs" />
-    <Compile Include="Extension\IpaDic\IpaDicFeatureExtension.cs" />
-    <Compile Include="Extension\UniDic\UniDicFeatureExtension.cs" />
-    <Compile Include="MeCabLatticeLevel.cs" />
-    <Compile Include="MeCabDictionaryType.cs" />
-    <Compile Include="MeCabFileFormatException.cs" />
-    <Compile Include="MeCabNodeStat.cs" />
-    <Compile Include="Core\CharInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Core\CharProperty.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Core\Token.cs" />
-    <Compile Include="Core\DoubleArray.cs" />
-    <Compile Include="Core\MeCabDictionary.cs" />
-    <Compile Include="MeCabException.cs" />
-    <Compile Include="MeCabNode.cs" />
-    <Compile Include="Core\MeCabPath.cs" />
-    <Compile Include="MeCabParam.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Core\Tokenizer.cs" />
-    <Compile Include="Core\Utils.cs" />
-    <Compile Include="Core\Viterbi.cs" />
-    <Compile Include="MeCabTagger.cs" />
-    <Compile Include="MeCabInvalidFileException.cs" />
-    <Compile Include="Settings.cs" />
+    <None Remove="app.config" />
+    <None Include="Properties\Settings.Designer.cs" />
+    <Compile Remove="Properties\Settings.Designer.cs" />
+    <None Remove="Properties\Settings.settings" />
+    <None Remove="dic\ipadic\char.bin" />
+    <None Remove="dic\ipadic\dicrc" />
+    <None Remove="dic\ipadic\matrix.bin" />
+    <None Remove="dic\ipadic\sys.dic" />
+    <None Remove="dic\ipadic\unk.dic" />
   </ItemGroup>
+
   <ItemGroup>
-    <None Include="app.config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
+    <Content Include="dic\ipadic\char.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dic\ipadic\dicrc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dic\ipadic\matrix.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dic\ipadic\sys.dic">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dic\ipadic\unk.dic">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>
