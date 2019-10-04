@@ -10,7 +10,7 @@ using System.IO;
 using System.IO.MemoryMappedFiles;
 #endif
 
-namespace NMeCab.Core
+namespace MeCab.Core
 {
     public class MeCabDictionary : IDisposable
     {

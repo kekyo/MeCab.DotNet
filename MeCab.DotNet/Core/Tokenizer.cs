@@ -6,11 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using MeCab;
 #if NeedId
 using System.Threading;
 #endif
 
-namespace NMeCab.Core
+namespace MeCab.Core
 {
     public class Tokenizer : IDisposable
     {

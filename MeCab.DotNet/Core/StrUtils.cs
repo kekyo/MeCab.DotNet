@@ -5,7 +5,7 @@ using System.Text;
 using System.IO.MemoryMappedFiles;
 #endif
 
-namespace NMeCab.Core
+namespace MeCab.Core
 {
     public static class StrUtils
     {

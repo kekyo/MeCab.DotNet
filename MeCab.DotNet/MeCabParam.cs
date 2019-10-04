@@ -5,10 +5,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using NMeCab.Core;
 using System.IO;
+using MeCab.Core;
 
-namespace NMeCab
+namespace MeCab
 {
     public class MeCabParam
     {

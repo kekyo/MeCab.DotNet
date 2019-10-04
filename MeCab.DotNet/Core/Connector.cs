@@ -6,11 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using MeCab;
 #if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
 using System.IO.MemoryMappedFiles;
 #endif
 
-namespace NMeCab.Core
+namespace MeCab.Core
 {
     public class Connector : IDisposable
     {

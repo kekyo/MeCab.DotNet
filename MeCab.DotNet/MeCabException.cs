@@ -4,7 +4,7 @@
 //  Copyright(C) 2004-2006 Nippon Telegraph and Telephone Corporation
 using System;
 
-namespace NMeCab
+namespace MeCab
 {
 #if !NETSTANDARD1_3
     using System.Runtime.Serialization;

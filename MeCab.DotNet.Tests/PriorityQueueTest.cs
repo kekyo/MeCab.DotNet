@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Diagnostics;
 
-namespace LibNMeCabTest
+namespace MeCab
 {
     public class Element : IComparable<Element>
     {
@@ -42,7 +42,7 @@ namespace LibNMeCabTest
         [Test]
         public void TestMethod1()
         {
-            var queue = new NMeCab.Core.PriorityQueue<Element>();
+            var queue = new MeCab.Core.PriorityQueue<Element>();
             var collection = new List<Element>();
             var count = 0;
 
@@ -78,7 +78,7 @@ namespace LibNMeCabTest
         [Test]
         public void TestMethod2()
         {
-            var queue = new NMeCab.Core.PriorityQueue<Element>();
+            var queue = new MeCab.Core.PriorityQueue<Element>();
             var collection = new List<Element>();
             var count = 0;
 
@@ -115,7 +115,7 @@ namespace LibNMeCabTest
         [Test]
         public void TestMethod3()
         {
-            var queue = new NMeCab.Core.PriorityQueue<Element>();
+            var queue = new MeCab.Core.PriorityQueue<Element>();
             var collection = new List<Element>();
             var order = 0;
             var count = 0;

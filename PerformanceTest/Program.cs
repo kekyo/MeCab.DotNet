@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
-using NMeCab;
+using MeCab;
 
 namespace PerformanceTest
 {

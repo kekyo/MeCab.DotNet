@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NMeCab.Core
+namespace MeCab.Core
 {
     public struct CharInfo
     {

@@ -5,10 +5,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using NMeCab.Core;
+using MeCab.Core;
 using System.Globalization;
 
-namespace NMeCab
+namespace MeCab
 {
     public class MeCabNode
     {
@@ -54,13 +54,13 @@ namespace NMeCab
         {
             get
             {
-                if (this.feature == null && this.Dictionary != null)
-                    this.feature = this.Dictionary.GetFeature(this.featurePos);
-                return this.feature;
+                if (feature == null && Dictionary != null)
+                    feature = Dictionary.GetFeature(featurePos);
+                return feature;
             }
             set
             {
-                this.feature = value;
+                feature = value;
             }
         }
 
@@ -74,9 +74,9 @@ namespace NMeCab
         /// <param name="dic">検索元の辞書</param>
         internal void SetFeature(uint featurePos, MeCabDictionary dic)
         {
-            this.feature = null;
+            feature = null;
             this.featurePos = featurePos;
-            this.Dictionary = dic;
+            Dictionary = dic;
         }
 
 #if NeedId
@@ -169,29 +169,29 @@ namespace NMeCab
             os.Append(this.Id).Append(" ");
 #endif
             os.Append("[Surface:");
-            if (this.Stat == MeCabNodeStat.Bos)
+            if (Stat == MeCabNodeStat.Bos)
                 os.Append("BOS");
-            else if (this.Stat == MeCabNodeStat.Eos)
+            else if (Stat == MeCabNodeStat.Eos)
                 os.Append("EOS");
             else
-                os.Append(this.Surface);
+                os.Append(Surface);
             os.Append("]");
 
-            os.Append("[Feature:").Append(this.Feature).Append("]");
-            os.Append("[BPos:").Append(this.BPos).Append("]");
-            os.Append("[EPos:").Append(this.EPos).Append("]");
-            os.Append("[RCAttr:").Append(this.RCAttr).Append("]");
-            os.Append("[LCAttr:").Append(this.LCAttr).Append("]");
-            os.Append("[PosId:").Append(this.PosId).Append("]");
-            os.Append("[CharType:").Append(this.CharType).Append("]");
-            os.Append("[Stat:").Append((int)this.Stat).Append("]");
-            os.Append("[IsBest:").Append(this.IsBest).Append("]");
-            os.Append("[Alpha:").Append(this.Alpha).Append("]");
-            os.Append("[Beta:").Append(this.Beta).Append("]");
-            os.Append("[Prob:").Append(this.Prob).Append("]");
-            os.Append("[Cost:").Append(this.Cost).Append("]");
+            os.Append("[Feature:").Append(Feature).Append("]");
+            os.Append("[BPos:").Append(BPos).Append("]");
+            os.Append("[EPos:").Append(EPos).Append("]");
+            os.Append("[RCAttr:").Append(RCAttr).Append("]");
+            os.Append("[LCAttr:").Append(LCAttr).Append("]");
+            os.Append("[PosId:").Append(PosId).Append("]");
+            os.Append("[CharType:").Append(CharType).Append("]");
+            os.Append("[Stat:").Append((int)Stat).Append("]");
+            os.Append("[IsBest:").Append(IsBest).Append("]");
+            os.Append("[Alpha:").Append(Alpha).Append("]");
+            os.Append("[Beta:").Append(Beta).Append("]");
+            os.Append("[Prob:").Append(Prob).Append("]");
+            os.Append("[Cost:").Append(Cost).Append("]");
 
-            for (MeCabPath path = this.LPath; path != null; path = path.LNext)
+            for (MeCabPath path = LPath; path != null; path = path.LNext)
             {
                 os.Append("[Path:");
 #if NeedId

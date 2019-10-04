@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <RootNamespace>LibNMeCabTest</RootNamespace>
+    <RootNamespace>MeCab</RootNamespace>
 
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>

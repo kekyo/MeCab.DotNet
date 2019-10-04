@@ -5,9 +5,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using NMeCab.Core;
+using MeCab;
+using MeCab.Core;
 
-namespace NMeCab
+namespace MeCab
 {
     public class MeCabTagger : IDisposable
     {

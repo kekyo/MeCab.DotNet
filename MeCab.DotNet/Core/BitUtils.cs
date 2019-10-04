@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace NMeCab.Core
+namespace MeCab.Core
 {
     /// <summary>
     /// ビット値操作のユーティリティ

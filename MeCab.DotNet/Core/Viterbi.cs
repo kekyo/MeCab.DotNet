@@ -2,12 +2,13 @@
 //
 //  Copyright(C) 2001-2006 Taku Kudo <taku@chasen.org>
 //  Copyright(C) 2004-2006 Nippon Telegraph and Telephone Corporation
+using MeCab;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace NMeCab.Core
+namespace MeCab.Core
 {
     public class Viterbi : IDisposable
     {

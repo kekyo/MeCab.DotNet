@@ -5,7 +5,7 @@
 using System;
 using System.Text;
 
-namespace NMeCab
+namespace MeCab
 {
 #if !NETSTANDARD1_3
     using System.Runtime.Serialization;

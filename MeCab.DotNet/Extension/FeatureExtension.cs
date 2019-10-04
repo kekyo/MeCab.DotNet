@@ -1,9 +1,10 @@
 ﻿#if !NET20
+using MeCab;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NMeCab.Extension
+namespace MeCab.Extension
 {
     public static class FeatureExtension
     {

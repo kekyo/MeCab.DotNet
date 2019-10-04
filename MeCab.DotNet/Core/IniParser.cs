@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 
-namespace NMeCab.Core
+namespace MeCab.Core
 {
     public class IniParser
     {

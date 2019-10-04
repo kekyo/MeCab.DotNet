@@ -1,8 +1,9 @@
 ﻿using System;
 using NUnit.Framework;
-using NMeCab.Extension.IpaDic;
+using MeCab.Extension.IpaDic;
+using MeCab;
 
-namespace LibNMeCabTest
+namespace MeCab
 {
     [TestFixture]
     public class IpaDicFeatureExtensionTest
@@ -10,7 +11,7 @@ namespace LibNMeCabTest
         [Test]
         public void TestMethod1()
         {
-            var node = new NMeCab.MeCabNode()
+            var node = new MeCabNode()
             {
                 Feature = "品詞,品詞細分類1,品詞細分類2,品詞細分類3,活用形,活用型,原形,読み,発音"
             };
@@ -28,7 +29,7 @@ namespace LibNMeCabTest
         [Test]
         public void TestMethod2()
         {
-            var node = new NMeCab.MeCabNode()
+            var node = new MeCabNode()
             {
                 Feature = ",,,,,,,,"
             };
@@ -46,7 +47,7 @@ namespace LibNMeCabTest
         [Test]
         public void TestMethod3()
         {
-            var node = new NMeCab.MeCabNode()
+            var node = new MeCabNode()
             {
                 Feature = null
             };
@@ -64,7 +65,7 @@ namespace LibNMeCabTest
         [Test]
         public void TestMethod4()
         {
-            var node = new NMeCab.MeCabNode()
+            var node = new MeCabNode()
             {
                 Feature = ""
             };
@@ -82,7 +83,7 @@ namespace LibNMeCabTest
         [Test]
         public void TestMethod5()
         {
-            var node = new NMeCab.MeCabNode()
+            var node = new MeCabNode()
             {
                 Feature = "品詞"
             };
@@ -100,7 +101,7 @@ namespace LibNMeCabTest
         [Test]
         public void TestMethod6()
         {
-            var node = new NMeCab.MeCabNode()
+            var node = new MeCabNode()
             {
                 Feature = "品詞,品詞細分類1"
             };
@@ -118,7 +119,7 @@ namespace LibNMeCabTest
         [Test]
         public void TestMethod7()
         {
-            var node = new NMeCab.MeCabNode()
+            var node = new MeCabNode()
             {
                 Feature = "品詞,品詞細分類1,"
             };
