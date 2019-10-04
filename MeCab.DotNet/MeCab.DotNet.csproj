@@ -31,32 +31,11 @@
 
   <ItemGroup>
     <None Remove="app.config" />
-    <None Include="Properties\Settings.Designer.cs" />
-    <Compile Remove="Properties\Settings.Designer.cs" />
-    <None Remove="Properties\Settings.settings" />
-    <None Remove="dic\ipadic\char.bin" />
-    <None Remove="dic\ipadic\dicrc" />
-    <None Remove="dic\ipadic\matrix.bin" />
-    <None Remove="dic\ipadic\sys.dic" />
-    <None Remove="dic\ipadic\unk.dic" />
+    <None Remove="dic\*" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="dic\ipadic\char.bin">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dic\ipadic\dicrc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dic\ipadic\matrix.bin">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dic\ipadic\sys.dic">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dic\ipadic\unk.dic">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="dic\*.*" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>
