@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeCab.DotNet", "MeCab.DotNet\MeCab.DotNet.csproj", "{3EE156E1-FEDE-4EC5-B64A-3287EC3AB2E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsSample", "WindowsFormsSample\WindowsFormsSample.csproj", "{BAB9F854-1C9A-4BF6-83C0-DE3F516547E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowsFormsSample", "WindowsFormsSample\WindowsFormsSample.csproj", "{BAB9F854-1C9A-4BF6-83C0-DE3F516547E1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerformanceTest", "PerformanceTest\PerformanceTest.csproj", "{5BF64AE2-E2D4-40E4-BBCC-2F185717AA25}"
 EndProject
@@ -15,9 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		BSD = BSD
+		build-nupkg.bat = build-nupkg.bat
 		COPYING = COPYING
 		LGPL = LGPL
 		LICENSE = LICENSE
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global
