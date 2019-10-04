@@ -2,6 +2,8 @@
 
 A morphological analysis engine for .NET Core.
 
+![MeCab.DotNet](Images/MeCab.DotNet-120.png)
+
 [![NuGet MeCab.DotNet](https://img.shields.io/nuget/v/MeCab.DotNet.svg?style=flat)](https://www.nuget.org/packages/MeCab.DotNet)
 
 # What's this?

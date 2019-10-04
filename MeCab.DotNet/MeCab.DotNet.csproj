@@ -21,6 +21,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>GPL-2.0-only OR LGPL-2.1-only</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/kekyo/MeCab.DotNet.git</PackageProjectUrl>
+    <PackageIcon>MeCab.DotNet-100.png</PackageIcon>
     <RepositoryUrl>https://github.com/kekyo/MeCab.DotNet.git</RepositoryUrl>
     <PackageTags>mecab;morphological;analysis</PackageTags>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
@@ -37,6 +38,7 @@
 
   <ItemGroup>
     <Content Include="dic\*.*" CopyToOutputDirectory="PreserveNewest" PackagePath="content/dic/" />
+    <None Include="..\Images\MeCab.DotNet-100.png" Pack="true" PackagePath="/" />
   </ItemGroup>
 
   <ItemGroup>
