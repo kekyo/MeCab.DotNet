@@ -11,9 +11,8 @@ namespace PerformanceTest
     {
         static void Main(string[] args)
         {
-            Properties.Settings settings = Properties.Settings.Default;
-            string targetFile = settings.TargetFile;
-            Encoding encoding = Encoding.GetEncoding(settings.TargetEncoding);
+            string targetFile = "kokoro.txt";
+            Encoding encoding = Encoding.UTF8;
             Stopwatch sw = new Stopwatch();
 
             //開始指示を待機
