@@ -1,5 +1,5 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using System.Diagnostics;
@@ -36,10 +36,10 @@ namespace LibNMeCabTest
         }
     }
 
-    [TestClass]
+    [TestFixture]
     public class PriorityQueueTest
     {
-        [TestMethod]
+        [Test]
         public void TestMethod1()
         {
             var queue = new NMeCab.Core.PriorityQueue<Element>();
@@ -75,7 +75,7 @@ namespace LibNMeCabTest
             }
         }
 
-        [TestMethod]
+        [Test]
         public void TestMethod2()
         {
             var queue = new NMeCab.Core.PriorityQueue<Element>();
@@ -112,7 +112,7 @@ namespace LibNMeCabTest
             }
         }
 
-        [TestMethod]
+        [Test]
         public void TestMethod3()
         {
             var queue = new NMeCab.Core.PriorityQueue<Element>();

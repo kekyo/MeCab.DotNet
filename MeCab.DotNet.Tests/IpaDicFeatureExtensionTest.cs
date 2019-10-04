@@ -1,13 +1,13 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using NMeCab.Extension.IpaDic;
 
 namespace LibNMeCabTest
 {
-    [TestClass]
+    [TestFixture]
     public class IpaDicFeatureExtensionTest
     {
-        [TestMethod]
+        [Test]
         public void TestMethod1()
         {
             var node = new NMeCab.MeCabNode()
@@ -25,7 +25,7 @@ namespace LibNMeCabTest
             Assert.AreEqual("発音", node.GetPronounciation());
         }
 
-        [TestMethod]
+        [Test]
         public void TestMethod2()
         {
             var node = new NMeCab.MeCabNode()
@@ -43,7 +43,7 @@ namespace LibNMeCabTest
             Assert.AreEqual("", node.GetPronounciation());
         }
 
-        [TestMethod]
+        [Test]
         public void TestMethod3()
         {
             var node = new NMeCab.MeCabNode()
@@ -61,7 +61,7 @@ namespace LibNMeCabTest
             Assert.IsNull(node.GetPronounciation());
         }
 
-        [TestMethod]
+        [Test]
         public void TestMethod4()
         {
             var node = new NMeCab.MeCabNode()
@@ -79,7 +79,7 @@ namespace LibNMeCabTest
             Assert.IsNull(node.GetPronounciation());
         }
 
-        [TestMethod]
+        [Test]
         public void TestMethod5()
         {
             var node = new NMeCab.MeCabNode()
@@ -97,7 +97,7 @@ namespace LibNMeCabTest
             Assert.IsNull(node.GetPronounciation());
         }
 
-        [TestMethod]
+        [Test]
         public void TestMethod6()
         {
             var node = new NMeCab.MeCabNode()
@@ -115,7 +115,7 @@ namespace LibNMeCabTest
             Assert.IsNull(node.GetPronounciation());
         }
 
-        [TestMethod]
+        [Test]
         public void TestMethod7()
         {
             var node = new NMeCab.MeCabNode()
