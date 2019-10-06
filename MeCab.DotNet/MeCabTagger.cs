@@ -5,7 +5,6 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using MeCab;
 using MeCab.Core;
 
 namespace MeCab
@@ -176,6 +175,20 @@ namespace MeCab
             return this.viterbi.Analyze(str, len);
         }
 
+        /// <summary>
+        /// 解析を行う
+        /// </summary>
+        /// <param name="str">解析対象の文字列</param>
+        /// <returns>文頭の形態素</returns>
+        public IEnumerable<MeCabNode> ParseToNodes(string str)
+        {
+            var node = this.ParseToNode(str);
+            while (node != null)
+            {
+                yield return node;
+                node = node.Next;
+            }
+        }
         #endregion
 
         #region NBest

@@ -9,6 +9,8 @@
     <Platforms>AnyCPU</Platforms>
     <LangVersion>8.0</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>MeCab.DotNet.xml</DocumentationFile>
+    <NoWarn>1591,1572,1573</NoWarn>
 
     <PackageId>MeCab.DotNet</PackageId>
     <AssemblyTitle>MeCab.DotNet - Morphological analysis engine for .NET Core 1/2/3 and .NET Frameworks managed library.</AssemblyTitle>
@@ -42,8 +44,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="build\*.*" CopyToOutputDirectory="PreserveNewest" PackagePath="build/" />
-    <Content Include="buildMultiTargeting\*.*" CopyToOutputDirectory="PreserveNewest" PackagePath="buildMultiTargeting/" />
+    <Content Include="build\*.*" CopyToOutputDirectory="Never" PackagePath="build/" />
+    <Content Include="buildMultiTargeting\*.*" CopyToOutputDirectory="Never" PackagePath="buildMultiTargeting/" />
   </ItemGroup>
 
 </Project>
