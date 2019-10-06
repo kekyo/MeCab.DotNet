@@ -9,7 +9,7 @@
     <Platforms>AnyCPU</Platforms>
     <LangVersion>8.0</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <DocumentationFile>MeCab.DotNet.xml</DocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <NoWarn>1591,1572,1573</NoWarn>
 
     <PackageId>MeCab.DotNet</PackageId>
