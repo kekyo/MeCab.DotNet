@@ -165,19 +165,6 @@
             <param name="enc">文字エンコーディング</param>
             <returns>文字列（\0は含まない）</returns>
         </member>
-        <member name="M:MeCab.Core.StrUtils.GetString(System.IO.MemoryMappedFiles.MemoryMappedViewAccessor,System.Int64,System.Text.Encoding,System.Int32)">
-            <summary>
-            MemoryMappedViewAccessorから終端が\0で表された文字列を取り出す。
-            </summary>
-            <remarks>
-            MemoryMappedViewAccessorの容量はInt32.MaxValueを超えていても良い。
-            </remarks>
-            <param name="accessor">MemoryMappedViewAccessor</param>
-            <param name="index">オフセット位置</param>
-            <param name="enc">文字エンコーディング</param>
-            <param name="buffSize">内部で使用するバッファの初期サイズ</param>
-            <returns>文字列（\0は含まない）</returns>
-        </member>
         <member name="M:MeCab.Core.StrUtils.GetEncoding(System.String)">
             <summary>
             指定の名前に対応するエンコーディングを取得する（.NET FWが対応していない名前にもアドホックに対応）
@@ -188,6 +175,34 @@
         <member name="P:MeCab.Core.Token.LcAttr">
             <summary>
             右文脈 id
+            </summary>
+        </member>
+        <member name="P:MeCab.Core.Token.RcAttr">
+            <summary>
+            左文脈 id
+            </summary>
+        </member>
+        <member name="P:MeCab.Core.Token.PosId">
+            <summary>
+            形態素 ID
+            </summary>
+        </member>
+        <member name="P:MeCab.Core.Token.WCost">
+            <summary>
+            単語生起コスト
+            </summary>
+        </member>
+        <member name="P:MeCab.Core.Token.Feature">
+            <summary>
+            素性情報の位置
+            </summary>
+        </member>
+        <member name="P:MeCab.Core.Token.Compound">
+            <summary>
+            reserved for noun compound
+            </summary>
+        </member>
+        <member n   右文脈 id
             </summary>
         </member>
         <member name="P:MeCab.Core.Token.RcAttr">

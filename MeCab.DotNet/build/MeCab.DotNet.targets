@@ -4,8 +4,7 @@
     <None Remove="dic\*" />
     <None Remove="dic" />
     <Content Include="$(MeCabPackageDefaultContentPath)\dic\*.*">
-      <Link Visible="False">dic\%(Filename)%(Extension)</Link>
-      <Visible>False</Visible>
+      <Link>dic\%(Filename)%(Extension)</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
