@@ -1,6 +1,6 @@
 # MeCab.DotNet
 
-A morphological analysis engine for .NET Core.
+A Japanese language morphological analysis engine for .NET Core.
 
 ![MeCab.DotNet](Images/MeCab.DotNet-120.png)
 
@@ -8,7 +8,7 @@ A morphological analysis engine for .NET Core.
 
 # What's this?
 
-["MeCab"](https://github.com/taku910/mecab) is a morphological analysis engine.
+["MeCab"](https://github.com/taku910/mecab) is a Japanese language morphological analysis engine.
 
 ["NMeCab"](https://ja.osdn.net/projects/nmecab/) is a re-implementation of MeCab engine on .NET Framework 2.0 managed library, but didn't update long time (looks like suspended...)
 
@@ -43,21 +43,44 @@ namespace ConsoleApp
         {
             var sentence = "行く川のながれは絶えずして、しかも本の水にあらず。";
 
-            var param = new MeCabParam();
+            var parameter = new MeCabParam();
+            var tagger = MeCabTagger.Create(parameter);
 
-            var t = MeCabTagger.Create(param);
-            var node = t.ParseToNode(sentence);
-            while (node != null)
+            foreach (var node in tagger.ParseToNodes(sentence))
             {
                 if (node.CharType > 0)
                 {
-                    Console.WriteLine(node.Surface + "\t" + node.Feature);
+                    var features = node.Feature.Split(',');
+                    var displayFeatures = string.Join(", ", features);
+
+                    Console.WriteLine($"{node.Surface}\t{displayFeatures}");
                 }
-                node = node.Next;
             }
         }
     }
 }
+```
+
+Results:
+
+```
+行く    動詞, 自立, *, *, 五段・カ行促音便, 基本形, 行く, イク, イク
+川      名詞, 一般, *, *, *, *, 川, カワ, カワ
+の      助詞, 連体化, *, *, *, *, の, ノ, ノ
+ながれ  動詞, 自立, *, *, 一段, 連用形, ながれる, ナガレ, ナガレ
+は      助詞, 係助詞, *, *, *, *, は, ハ, ワ
+絶えず  副詞, 一般, *, *, *, *, 絶えず, タエズ, タエズ
+し      動詞, 自立, *, *, サ変・スル, 連用形, する, シ, シ
+て      助詞, 接続助詞, *, *, *, *, て, テ, テ
+、      記号, 読点, *, *, *, *, 、, 、, 、
+しかも  接続詞, *, *, *, *, *, しかも, シカモ, シカモ
+本      名詞, 一般, *, *, *, *, 本, ホン, ホン
+の      助詞, 連体化, *, *, *, *, の, ノ, ノ
+水      名詞, 一般, *, *, *, *, 水, ミズ, ミズ
+に      助詞, 格助詞, 一般, *, *, *, に, ニ, ニ
+あら    動詞, 自立, *, *, 五段・ラ行, 未然形, ある, アラ, アラ
+ず      助動詞, *, *, *, 特殊・ヌ, 連用ニ接続, ぬ, ズ, ズ
+。      記号, 句点, *, *, *, *, 。, 。, 。
 ```
 
 # License

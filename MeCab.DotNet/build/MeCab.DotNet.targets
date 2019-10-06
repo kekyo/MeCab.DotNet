@@ -2,8 +2,9 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Condition="'$(MeCabUseDefaultDictionary)' == 'True'">
     <None Remove="dic\*" />
+    <None Remove="dic" />
     <Content Include="$(MeCabPackageDefaultContentPath)\dic\*.*">
-      <Link>dic\%(Filename)%(Extension)</Link>
+      <Link Visible="False">dic\%(Filename)%(Extension)</Link>
       <Visible>False</Visible>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
