@@ -1,29 +1,29 @@
 # MeCab.DotNet
 
-A Japanese language morphological analysis engine for .NET Core.
+日本語形態素解析エンジン for .NET Core.
 
 ![MeCab.DotNet](Images/MeCab.DotNet-120.png)
 
 [![NuGet MeCab.DotNet](https://img.shields.io/nuget/v/MeCab.DotNet.svg?style=flat)](https://www.nuget.org/packages/MeCab.DotNet)
 
-# What's this?
+# これは何？
 
-["MeCab"](https://github.com/taku910/mecab) is a Japanese language morphological analysis engine.
+["MeCab"](https://github.com/taku910/mecab) は、日本語形態素解析エンジンのプロジェクトです。
 
-["NMeCab"](https://ja.osdn.net/projects/nmecab/) is a re-implementation of MeCab engine on .NET Framework 2.0 managed library, but didn't update long time (looks like suspended...)
+["NMeCab"](https://ja.osdn.net/projects/nmecab/) は、上記MeCabを、.NET Framework 2.0のマネージライブラリとして実装し直したものです。ただ、もう更新されていないようです...
 
-"MeCab.DotNet" (this project) is a ported of NMeCab on .NET Core 1/2/3 and .NET Frameworks and packed into NuGet format.
+"MeCab.DotNet" （このプロジェクト）は、上記NMeCabを最新の.NET Core 1/2/3と.NET Frameworkで使えるように移植し、NuGetのパッケージに固めて使いやすくしたものです。
 
-# How to use
+# 使い方
 
-MeCab.DotNet targetted platforms:
-* .NET Core 1/2/3 (Built on .NET Standard 1.3/2.0/2.1)
-* .NET Framework 4.0/4.5 or upper.
+MeCab.DotNetのターゲットプラットフォームです:
+* .NET Core 1/2/3 (実際には.NET Standard 1.3/2.0/2.1に適合します)
+* .NET Framework 4.0/4.5かそれ以上
 
-Changed from NMeCab:
-* Wider .NET platform supporting and depricated PCL libraries, .NET Framework 3.5 and lower.
-* Changed namespace `NMeCab` to `MeCab`.
-* Added more usable methods.
+NMeCabからの変更点:
+* より幅広いプラットフォームに対応し、PCLや.NET Framework 3.5以下は切り捨て。
+* 名前空間の競合を避けるため、`NMeCab`を`MeCab`に変えています。
+* 若干のメソッドの追加。
 
 Enabling steps:
 1. [Install from NuGet named "MeCab.DotNet"](https://www.nuget.org/packages/MeCab.DotNet).
