@@ -14,6 +14,9 @@
 
 "MeCab.DotNet" （このプロジェクト）は、上記NMeCabを最新の.NET Core 1/2/3と.NET Frameworkで使えるように移植し、NuGetのパッケージに固めて使いやすくしたものです。
 
+形態素解析とは、任意の日本語の文書を入力として、その文字や単語が日本語文法的に何であるのかを解析するというものです。これを使うと、自由に書かれた日本語の文脈に沿って、文書文字列を機械的に解析することが出来るようになります。
+サンプルコードを参照すれば、おおよその使い方が理解できると思います。
+
 # 使い方
 
 MeCab.DotNetのターゲットプラットフォームです:
@@ -25,12 +28,12 @@ NMeCabからの変更点:
 * 名前空間の競合を避けるため、`NMeCab`を`MeCab`に変えています。
 * 若干のメソッドの追加。
 
-Enabling steps:
-1. [Install from NuGet named "MeCab.DotNet"](https://www.nuget.org/packages/MeCab.DotNet).
-2. Usually you'll use default dictionary named IPADIC, the package will append `dic` folder into your project automatically. But have to declare `MeCabUseDefaultDictionary` property and set value to `False` inside `PropertyGroup` in csproj if you wanna use your own dictionary.
-3. Build and run!
+導入の方法:
+1. [NuGetから"MeCab.DotNet"をインストール](https://www.nuget.org/packages/MeCab.DotNet).
+2. 大抵の場合、デフォルトのIPADICという辞書（自動的に`dic`フォルダに追加されます）を使って、無難な解析を行うことが出来ます（つまり、何もしなくてもOK）。しかし、もしカスタムの辞書を使いたい場合は、csproj内の`PropertyGroup`に、`MeCabUseDefaultDictionary`を追加してその値を`False`にしてください。あなたのカスタム辞書を追加できるようになります。
+3. ビルドして実行します！
 
-# First step sample code
+# サンプルコード
 
 ```csharp
 using System;
@@ -62,7 +65,7 @@ namespace ConsoleApp
 }
 ```
 
-Results:
+結果:
 
 ```
 行く    動詞, 自立, *, *, 五段・カ行促音便, 基本形, 行く, イク, イク
