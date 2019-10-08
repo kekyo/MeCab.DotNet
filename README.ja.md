@@ -6,6 +6,8 @@
 
 [![NuGet MeCab.DotNet](https://img.shields.io/nuget/v/MeCab.DotNet.svg?style=flat)](https://www.nuget.org/packages/MeCab.DotNet)
 
+[English language is here. (英語はこちら)](README.md)
+
 # これは何？
 
 ["MeCab"](https://github.com/taku910/mecab) は、日本語形態素解析エンジンのプロジェクトです。
@@ -26,11 +28,12 @@ MeCab.DotNetのターゲットプラットフォームです:
 NMeCabからの変更点:
 * より幅広いプラットフォームに対応し、PCLや.NET Framework 3.5以下は切り捨て。
 * 名前空間の競合を避けるため、`NMeCab`を`MeCab`に変えています。
-* 若干のメソッドの追加。
+* App.configベースの構成を削除 （辞書フォルダ指定などが必要な場合は、`MeCabParam`クラスを使用します）
+* 若干のユーティリティメソッドの追加。
 
 導入の方法:
 1. [NuGetから"MeCab.DotNet"をインストール](https://www.nuget.org/packages/MeCab.DotNet).
-2. 大抵の場合、デフォルトのIPADICという辞書（自動的に`dic`フォルダに追加されます）を使って、無難な解析を行うことが出来ます（つまり、何もしなくてもOK）。しかし、もしカスタムの辞書を使いたい場合は、csproj内の`PropertyGroup`に、`MeCabUseDefaultDictionary`を追加してその値を`False`にしてください。あなたのカスタム辞書を追加できるようになります。
+2. 大抵の場合、デフォルトのIPADICという辞書（自動的に`dic`フォルダに追加されます）を使って、無難な解析を行うことが出来ます（つまり、辞書ファイルについて何もしなくてもOK）。しかし、もしカスタムの辞書を使いたい場合は、csproj内の`PropertyGroup`に、`MeCabUseDefaultDictionary`を追加してその値を`False`にしてください。カスタム辞書を`dic`フォルダに追加して使用できるようになります。
 3. ビルドして実行します！
 
 # サンプルコード
@@ -87,5 +90,5 @@ namespace ConsoleApp
 。      記号, 句点, *, *, *, *, 。, 。, 。
 ```
 
-# License
-Under GPL2, LGPL2.1 derived from NMeCab project.
+# ライセンス
+GPL2またはLGPL2.1です（NMeCabプロジェクトから引き継いでいます）。

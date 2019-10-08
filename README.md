@@ -6,6 +6,8 @@ A Japanese language morphological analysis engine for .NET Core.
 
 [![NuGet MeCab.DotNet](https://img.shields.io/nuget/v/MeCab.DotNet.svg?style=flat)](https://www.nuget.org/packages/MeCab.DotNet)
 
+[![Japanese language is here.](Images/Japanese.256.png)](README.ja.md)
+
 # What's this?
 
 ["MeCab"](https://github.com/taku910/mecab) is a Japanese language morphological analysis engine.
@@ -23,6 +25,7 @@ MeCab.DotNet targetted platforms:
 Changed from NMeCab:
 * Wider .NET platform supporting and depricated PCL libraries, .NET Framework 3.5 and lower.
 * Changed namespace `NMeCab` to `MeCab`.
+* Removed App.config based configuration (You can only use `MeCabParam` for additional configuration parameters.)
 * Added more usable methods.
 
 Enabling steps:
