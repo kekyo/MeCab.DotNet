@@ -48,7 +48,7 @@ namespace ConsoleApp
     {
         public static void Main(string[] args)
         {
-            var sentence = "行く川のながれは絶えずして、しかも本の水にあらず。";
+            var sentence = "行く川のながれは絶えずして、しかももとの水にあらず。";
 
             var parameter = new MeCabParam();
             var tagger = MeCabTagger.Create(parameter);
@@ -81,7 +81,7 @@ namespace ConsoleApp
 て      助詞, 接続助詞, *, *, *, *, て, テ, テ
 、      記号, 読点, *, *, *, *, 、, 、, 、
 しかも  接続詞, *, *, *, *, *, しかも, シカモ, シカモ
-本      名詞, 一般, *, *, *, *, 本, ホン, ホン
+もと    名詞, 一般, *, *, *, *, もと, モト, モト
 の      助詞, 連体化, *, *, *, *, の, ノ, ノ
 水      名詞, 一般, *, *, *, *, 水, ミズ, ミズ
 に      助詞, 格助詞, 一般, *, *, *, に, ニ, ニ
