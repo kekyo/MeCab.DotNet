@@ -35,6 +35,8 @@ Enabling steps:
 
 # First step sample code
 
+## C#
+
 ```csharp
 using System;
 using MeCab;
@@ -65,7 +67,26 @@ namespace ConsoleApp
 }
 ```
 
-Results:
+## F#
+
+```fsharp
+open MeCab
+
+[<EntryPoint>]
+let main argv =
+    let sentence = "行く川のながれは絶えずして、しかももとの水にあらず。"
+
+    let parameter = new MeCabParam()
+    let tagger = MeCabTagger.Create parameter
+    for node in tagger.ParseToNodes sentence do
+        if node.CharType > 0u then
+            let features = node.Feature.Split ','
+            let displayFeatures = System.String.Join(", ", features)
+            printfn "%s\t%s" node.Surface displayFeatures
+    0
+```
+
+## Results
 
 ```
 行く    動詞, 自立, *, *, 五段・カ行促音便, 基本形, 行く, イク, イク
