@@ -78,11 +78,15 @@ let main argv =
 
     let parameter = new MeCabParam()
     let tagger = MeCabTagger.Create parameter
-    for node in tagger.ParseToNodes sentence do
-        if node.CharType > 0u then
+
+    let isCharType (node:MeCabNode) = node.CharType > 0u
+    sentence
+        |> tagger.ParseToNodes
+        |> Seq.filter isCharType
+        |> Seq.iter (fun node ->
             let features = node.Feature.Split ','
             let displayFeatures = System.String.Join(", ", features)
-            printfn "%s\t%s" node.Surface displayFeatures
+            printfn "%s\t%s" node.Surface displayFeatures)
     0
 ```
 
