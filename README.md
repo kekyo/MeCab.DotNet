@@ -20,10 +20,10 @@ A Japanese language morphological analysis engine for .NET Core.
 
 MeCab.DotNet targetted platforms:
 * .NET Core 1/2/3 (Built on .NET Standard 1.3/2.0/2.1)
-* .NET Framework 4.0/4.5 or upper.
+* .NET Framework 2.0/3.5/4.0/4.5 (3.5 and 4.0 are Client profile, 2.0 doesn't include extension methods)
 
 Changed from NMeCab:
-* Wider .NET platform supporting and depricated PCL libraries, .NET Framework 3.5 and lower.
+* Wider .NET platform supporting and deprecated PCL libraries.
 * Changed namespace `NMeCab` to `MeCab`.
 * Removed App.config based configuration (You can only use `MeCabParam` for additional configuration parameters.)
 * Added more usable methods.

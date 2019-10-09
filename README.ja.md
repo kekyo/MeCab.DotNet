@@ -23,10 +23,10 @@
 
 MeCab.DotNetのターゲットプラットフォームです:
 * .NET Core 1/2/3 (実際には.NET Standard 1.3/2.0/2.1に適合します)
-* .NET Framework 4.0/4.5かそれ以上
+* .NET Framework 2.0/3.5/4.0/4.5 (3.5と4.0はClient profile, 2.0は拡張メソッドは非対応)
 
 NMeCabからの変更点:
-* より幅広いプラットフォームに対応し、PCLや.NET Framework 3.5以下は切り捨て。
+* より幅広いプラットフォームに対応し、PCLは切り捨て。
 * 名前空間の競合を避けるため、`NMeCab`を`MeCab`に変えています。
 * App.configベースの構成を削除 （辞書フォルダ指定などが必要な場合は、`MeCabParam`クラスを使用します）
 * 若干のユーティリティメソッドの追加。

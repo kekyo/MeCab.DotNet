@@ -1,4 +1,4 @@
-﻿#if !NET20
+﻿#if NET35 || NET40 || NET45 || NETSTANDARD1_3 || NETSTANDARD2_0 || NETSTANDARD2_1
 using MeCab;
 using System;
 using System.Collections.Generic;
