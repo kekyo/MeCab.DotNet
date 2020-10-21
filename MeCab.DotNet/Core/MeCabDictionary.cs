@@ -136,7 +136,7 @@ namespace MeCab.Core
             }
         }
 #else
-            public void Open(string filePath)
+        public void Open(string filePath)
         {
             this.FileName = filePath;
             
