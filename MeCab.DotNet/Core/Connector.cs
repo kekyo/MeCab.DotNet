@@ -22,6 +22,7 @@ namespace MeCab.Core
 #if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
         private MemoryMappedFile mmf;
         private MemoryMappedViewAccessor matrix;
+        private FileStream fileStream;
 #else
         private short[] matrix;
 #endif
@@ -43,9 +44,28 @@ namespace MeCab.Core
 #if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
         public void Open(string fileName)
         {
-            //MMFインスタンスを生成するが、後でDisposeするために保持しておく
-            this.mmf = MemoryMappedFile.CreateFromFile(fileName, FileMode.Open,
-                                                        null, 0L, MemoryMappedFileAccess.Read);
+            // https://github.com/komutan/NMeCab/blob/4d61926834b4a63e38cee050c0b7382c52a71226/src/LibNMeCab/Core/MemoryMappedFileLoader.cs#L28
+            this.fileStream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.Read);
+
+            // MMFインスタンスを生成するが、後でDisposeするために保持しておく
+#if NET40 || NET45
+            this.mmf = MemoryMappedFile.CreateFromFile(
+                fileStream,
+                null,
+                0L,
+                MemoryMappedFileAccess.Read,
+                null,
+                HandleInheritability.None,
+                false);
+#else
+            this.mmf = MemoryMappedFile.CreateFromFile(
+                fileStream,
+                null,
+                0L,
+                MemoryMappedFileAccess.Read,
+                HandleInheritability.None,
+                false);
+#endif
             this.Open(this.mmf);
         }
 
@@ -129,6 +149,7 @@ namespace MeCab.Core
 #if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
                 if (this.mmf != null) this.mmf.Dispose();
                 if (this.matrix != null) this.matrix.Dispose();
+                this.fileStream?.Dispose();
 #endif
             }
 
