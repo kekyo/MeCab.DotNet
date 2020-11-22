@@ -95,7 +95,7 @@ namespace MeCab
 
             this.writer.Open(param);
         }
-
+#if !NETSTANDARD1_3
         /// <summary>
         /// MeCabTaggerのインスタンスを生成する
         /// </summary>
@@ -106,7 +106,7 @@ namespace MeCab
             param.LoadDicRC();
             return MeCabTagger.Create(param);
         }
-
+#endif
         /// <summary>
         /// MeCabTaggerのインスタンスを生成する
         /// </summary>

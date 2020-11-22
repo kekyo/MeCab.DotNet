@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using MeCab.Core;
+using System.Reflection;
 
 namespace MeCab
 {
@@ -66,15 +67,32 @@ namespace MeCab
 
         public string RcFile { get; set; }
 
+#if NETSTANDARD1_3
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="dicdir">dicフォルダへのパス</param>
+        /// <remarks>netstandard1.3では、デフォルトのdicフォルダパスを自動的に構成できないため、
+        /// 引数に指定する必要があります。</remarks>
+        public MeCabParam(string dicdir)
+#else
         /// <summary>
         /// コンストラクタ
         /// </summary>
         public MeCabParam()
+#endif
         {
             this.Theta = MeCabParam.DefaultTheta;
             this.RcFile = MeCabParam.DefaultRcFile;
 
-            this.DicDir = "dic";
+#if !NETSTANDARD1_3
+            // In unit test context, the current folder path is set unstable.
+            var dicdir = Path.Combine(
+                Path.GetDirectoryName(this.GetType().Assembly.Location),
+                "dic");
+#endif
+
+            this.DicDir = dicdir;
             this.UserDic = new string[0];
             this.OutputFormatType = "lattice";
         }
