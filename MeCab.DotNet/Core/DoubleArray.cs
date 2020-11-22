@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
 using System.IO.MemoryMappedFiles;
 #endif
 
@@ -33,7 +33,7 @@ namespace MeCab.Core
 
         public const int UnitSize = sizeof(int) + sizeof(uint);
 
-#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
 
         private MemoryMappedViewAccessor accessor;
 
@@ -67,7 +67,7 @@ namespace MeCab.Core
 
         #region Open
 
-#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
 
         public void Open(MemoryMappedFile mmf, long offset, long size)
         {
@@ -183,7 +183,7 @@ namespace MeCab.Core
 
         private int ReadBase(int pos)
         {
-#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
             return this.accessor.ReadInt32(pos * UnitSize);
 #else
             return this.array[pos].Base;
@@ -192,7 +192,7 @@ namespace MeCab.Core
 
         private void ReadUnit(int pos, out Unit unit)
         {
-#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
             this.accessor.Read<Unit>(pos * UnitSize, out unit);
 #else
             unit = this.array[pos];

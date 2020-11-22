@@ -22,6 +22,7 @@
 # 使い方
 
 MeCab.DotNetのターゲットプラットフォームです:
+* .NET 5
 * .NET Core 1/2/3 (実際には.NET Standard 1.3/2.0/2.1に適合します)
 * .NET Framework 2.0/3.5/4.0/4.5 (3.5と4.0はClient profile, 2.0は拡張メソッドは非対応)
 

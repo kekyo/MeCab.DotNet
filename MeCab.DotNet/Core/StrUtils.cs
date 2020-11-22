@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
 using System.IO.MemoryMappedFiles;
 #endif
 
@@ -71,7 +71,7 @@ namespace MeCab.Core
             }
         }
 
-#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
 
         /// <summary>
         /// MemoryMappedViewAccessorから終端が\0で表された文字列を取り出す。

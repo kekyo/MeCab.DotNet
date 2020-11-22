@@ -7,7 +7,7 @@ using System.Text;
 
 namespace MeCab
 {
-#if NET20 || NET35 || NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
+#if NET20 || NET35 || NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
     using System.Security.Permissions;
     using System.Runtime.Serialization;
 
@@ -38,7 +38,7 @@ namespace MeCab
             this.Line = line;
         }
 
-#if NET20 || NET35 || NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
+#if NET20 || NET35 || NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
         public MeCabFileFormatException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
@@ -46,7 +46,9 @@ namespace MeCab
             this.Line = info.GetString("Line");
         }
 
+#if !NET5_0
         [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
+#endif
         public override void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             base.GetObjectData(info, context);
