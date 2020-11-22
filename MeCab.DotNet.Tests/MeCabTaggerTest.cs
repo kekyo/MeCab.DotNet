@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using NUnit.Framework;
 
 namespace MeCab
@@ -14,8 +15,16 @@ namespace MeCab
         [Test]
         public void CreateMulti()
         {
-            using var tagger1 = MeCabTagger.Create();
-            using var tagger2 = MeCabTagger.Create();
+            // In unit test context, the current folder path is set unstable.
+            var parameter = new MeCabParam
+            {
+                DicDir = Path.Combine(
+                    Path.GetDirectoryName(this.GetType().Assembly.Location),
+                    "dic")
+            };
+
+            using var tagger1 = MeCabTagger.Create(parameter);
+            using var tagger2 = MeCabTagger.Create(parameter);
 
             GC.KeepAlive(tagger1);
             GC.KeepAlive(tagger2);
