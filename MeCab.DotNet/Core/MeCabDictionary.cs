@@ -23,6 +23,7 @@ namespace MeCab.Core
         private MemoryMappedFile mmf;
         private MemoryMappedViewAccessor tokens;
         private MemoryMappedViewAccessor features;
+        private FileStream fileStream;
 #else
         private Token[] tokens;
         private byte[] features;
@@ -74,8 +75,27 @@ namespace MeCab.Core
 #if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
         public void Open(string filePath)
         {
-            this.mmf = MemoryMappedFile.CreateFromFile(filePath, FileMode.Open,
-                                                       null, 0L, MemoryMappedFileAccess.Read);
+            // https://github.com/komutan/NMeCab/blob/4d61926834b4a63e38cee050c0b7382c52a71226/src/LibNMeCab/Core/MemoryMappedFileLoader.cs#L28
+            this.fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
+
+#if NET40 || NET45
+            this.mmf = MemoryMappedFile.CreateFromFile(
+                fileStream,
+                null,
+                0L,
+                MemoryMappedFileAccess.Read,
+                null,
+                HandleInheritability.None,
+                false);
+#else
+            this.mmf = MemoryMappedFile.CreateFromFile(
+                fileStream,
+                null,
+                0L,
+                MemoryMappedFileAccess.Read,
+                HandleInheritability.None,
+                false);
+#endif
             this.Open(this.mmf, filePath);
         }
 
@@ -270,6 +290,7 @@ namespace MeCab.Core
                 if (this.mmf != null) this.mmf.Dispose();
                 if (this.tokens != null) this.tokens.Dispose();
                 if (this.features != null) this.features.Dispose();
+                this.fileStream?.Dispose();
 #endif
             }
 
