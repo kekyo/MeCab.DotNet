@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using MeCab;
-#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
 using System.IO.MemoryMappedFiles;
 #endif
 
@@ -19,7 +19,7 @@ namespace MeCab.Core
 
         private const string MatrixFile = "matrix.bin";
 
-#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
         private MemoryMappedFile mmf;
         private MemoryMappedViewAccessor matrix;
         private FileStream fileStream;
@@ -41,7 +41,7 @@ namespace MeCab.Core
             this.Open(fileName);
         }
 
-#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
         public void Open(string fileName)
         {
             // https://github.com/komutan/NMeCab/blob/4d61926834b4a63e38cee050c0b7382c52a71226/src/LibNMeCab/Core/MemoryMappedFileLoader.cs#L28
@@ -118,7 +118,7 @@ namespace MeCab.Core
         {
             int pos = lNode.RCAttr + this.LSize * rNode.LCAttr;
 
-#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
             return this.matrix.ReadInt16(pos * sizeof(short)) + rNode.WCost;
 #else
             return this.matrix[pos] + rNode.WCost;
@@ -146,7 +146,7 @@ namespace MeCab.Core
 
             if (disposing)
             {
-#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
                 if (this.mmf != null) this.mmf.Dispose();
                 if (this.matrix != null) this.matrix.Dispose();
                 this.fileStream?.Dispose();

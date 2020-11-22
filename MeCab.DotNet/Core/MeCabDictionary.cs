@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
 using System.IO.MemoryMappedFiles;
 #endif
 
@@ -19,7 +19,7 @@ namespace MeCab.Core
         private const uint DictionaryMagicID = 0xEF718F77u;
         private const uint DicVersion = 102u;
 
-#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
         private MemoryMappedFile mmf;
         private MemoryMappedViewAccessor tokens;
         private MemoryMappedViewAccessor features;
@@ -72,7 +72,7 @@ namespace MeCab.Core
 
         #region Open
 
-#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
         public void Open(string filePath)
         {
             // https://github.com/komutan/NMeCab/blob/4d61926834b4a63e38cee050c0b7382c52a71226/src/LibNMeCab/Core/MemoryMappedFileLoader.cs#L28
@@ -239,7 +239,7 @@ namespace MeCab.Core
         {
             Token[] dist = new Token[0xFF & n.Value];
             int tokenPos = n.Value >> 8;
-#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
             this.tokens.ReadArray<Token>(tokenPos * sizeof(Token), dist, 0, dist.Length);
 #else
             Array.Copy(this.tokens, tokenPos, dist, 0, dist.Length);
@@ -286,7 +286,7 @@ namespace MeCab.Core
             if (disposing)
             {
                 if (this.da != null) this.da.Dispose();
-#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1
+#if NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
                 if (this.mmf != null) this.mmf.Dispose();
                 if (this.tokens != null) this.tokens.Dispose();
                 if (this.features != null) this.features.Dispose();
