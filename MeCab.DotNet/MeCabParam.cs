@@ -6,8 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-using MeCab.Core;
 using System.Reflection;
+using MeCab.Core;
 
 namespace MeCab
 {
@@ -87,14 +87,31 @@ namespace MeCab
 
 #if !NETSTANDARD1_3
             // In unit test context, the current folder path is set unstable.
-            var dicdir = Path.Combine(
-                Path.GetDirectoryName(this.GetType().Assembly.Location),
-                "dic");
+            var assemblyFolderPath = Path.GetDirectoryName(
+                this.GetType().Assembly.Location);
+            var inPackagePath = CombinePath(assemblyFolderPath!, "..", "InPackage");
+            var dicdir = File.Exists(inPackagePath) ?
+                CombinePath(assemblyFolderPath, "..", "..", "content", "dic") :
+                CombinePath(assemblyFolderPath, "dic");
 #endif
 
             this.DicDir = dicdir;
             this.UserDic = new string[0];
             this.OutputFormatType = "lattice";
+        }
+
+        private static string CombinePath(params string[] paths)
+        {
+#if NET20 || NET35
+            var r = paths[0];
+            for (var index = 1; index < paths.Length; index++)
+            {
+                r = Path.Combine(r, paths[index]);
+            }
+            return r;
+#else
+            return Path.Combine(paths);
+#endif
         }
 
         public void LoadDicRC()

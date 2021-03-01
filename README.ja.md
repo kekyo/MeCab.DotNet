@@ -4,7 +4,7 @@
 
 ![MeCab.DotNet](Images/MeCab.DotNet-120.png)
 
-[![NuGet MeCab.DotNet](https://img.shields.io/nuget/v/MeCab.DotNet.svg?style=flat)](https://www.nuget.org/packages/MeCab.DotNet)
+[![NuGet MeCab.DotNet](https://img.shields.io/nuget/v/MeCab.DotNet.svg?style=flat)](https://www.nuget.org/packages/MeCab.DotNet) [![.NET](https://github.com/kekyo/MeCab.DotNet/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/kekyo/MeCab.DotNet/actions/workflows/build.yml)
 
 [English language is here. (英語はこちら)](README.md)
 
