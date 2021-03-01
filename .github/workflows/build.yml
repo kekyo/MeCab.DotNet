@@ -24,8 +24,12 @@ jobs:
       with:
         dotnet-version: 5.0.100
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore MeCab.Dotnet/MeCab.Dotnet.csproj
+    - name: Install dependencies (Tests)
+      run: dotnet restore MeCab.Dotnet.Tests/MeCab.Dotnet.Tests.csproj
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build --configuration Release --no-restore MeCab.Dotnet/MeCab.Dotnet.csproj
+    - name: Build (Test)
+      run: dotnet build --configuration Release --no-restore MeCab.Dotnet.Tests/MeCab.Dotnet.Tests.csproj
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test --no-restore --verbosity normal MeCab.Dotnet.Tests/MeCab.Dotnet.Tests.csproj
