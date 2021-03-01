@@ -54,6 +54,7 @@
   <ItemGroup>
     <Content Include="build\*.*" CopyToOutputDirectory="Never" PackagePath="build/" />
     <Content Include="buildMultiTargeting\*.*" CopyToOutputDirectory="Never" PackagePath="buildMultiTargeting/" />
+    <None Include="InPackage" Pack="true" PackagePath="lib/$(TargetFramework)/" />
   </ItemGroup>
 
 </Project>
