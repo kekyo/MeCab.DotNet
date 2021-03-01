@@ -4,10 +4,10 @@
     <TargetFrameworks>net45;netcoreapp2.1;net5.0</TargetFrameworks>
     <RootNamespace>MeCab</RootNamespace>
 
-    <DebugType>pdbonly</DebugType>
+    <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <Platforms>AnyCPU</Platforms>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
