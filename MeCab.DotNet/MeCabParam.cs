@@ -89,9 +89,9 @@ namespace MeCab
             // In unit test context, the current folder path is set unstable.
             var assemblyFolderPath = Path.GetDirectoryName(
                 this.GetType().Assembly.Location);
-            var inPackagePath = Path.Combine(assemblyFolderPath!, "InPackage");
+            var inPackagePath = CombinePath(assemblyFolderPath!, "..", "InPackage");
             var dicdir = File.Exists(inPackagePath) ?
-                CombinePath(inPackagePath, "..", "..", "content", "dic") :
+                CombinePath(assemblyFolderPath, "..", "..", "content", "dic") :
                 CombinePath(assemblyFolderPath, "dic");
 #endif
 
