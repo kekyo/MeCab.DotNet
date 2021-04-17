@@ -10,9 +10,11 @@
 
 # これは何？
 
+NOTE: 将来的に、MeCab.DotNetとNMeCabを統合する作業をしています。 [詳しくはこのissueを参照して下さい。](https://github.com/kekyo/MeCab.DotNet/issues/5)
+
 ["MeCab"](https://github.com/taku910/mecab) は、日本語形態素解析エンジンのプロジェクトです。
 
-["NMeCab"](https://ja.osdn.net/projects/nmecab/) は、上記MeCabを、.NET Framework 2.0のマネージライブラリとして実装し直したものです。ただ、もう更新されていないようです...
+["NMeCab"](https://ja.osdn.net/projects/nmecab/) は、上記MeCabを、.NET Framework 2.0のマネージライブラリとして実装し直したものです。ただ、もう更新されていないようです...  --> [GitHubで復活しました](https://github.com/komutan/NMeCab)
 
 "MeCab.DotNet" （このプロジェクト）は、上記NMeCabを最新の.NET Core 1/2/3と.NET Frameworkで使えるように移植し、NuGetのパッケージに固めて使いやすくしたものです。
 

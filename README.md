@@ -10,9 +10,11 @@ A Japanese language morphological analysis engine for .NET Core.
 
 # What's this?
 
+NOTE: We will merge both MeCab.DotNet and NMeCab in future release. [See related issue.](https://github.com/kekyo/MeCab.DotNet/issues/5)
+
 ["MeCab"](https://github.com/taku910/mecab) is a Japanese language morphological analysis engine.
 
-["NMeCab"](https://ja.osdn.net/projects/nmecab/) is a re-implementation of MeCab engine on .NET Framework 2.0 managed library, but didn't update long time (looks like suspended...)
+["NMeCab"](https://ja.osdn.net/projects/nmecab/) is a re-implementation of MeCab engine on .NET Framework 2.0 managed library, but didn't update long time (looks like suspended...) --> [Revived here (GitHub)](https://github.com/komutan/NMeCab)
 
 "MeCab.DotNet" (this project) is a ported of NMeCab on .NET Core 1/2/3 and .NET Frameworks and packed into NuGet format.
 
