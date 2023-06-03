@@ -10,7 +10,7 @@
     <LangVersion>latest</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
-    <NoWarn>1591,1572,1573</NoWarn>
+    <NoWarn>$(NoWarn);1591;1572;1573;NETSDK1138;NU1803</NoWarn>
     <RepositoryUrl>https://github.com/kekyo/MeCab.DotNet.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
 
