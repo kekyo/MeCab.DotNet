@@ -3,16 +3,10 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFrameworks>net48;net6.0</TargetFrameworks>
-    <RootNamespace>LibNMeCabTest</RootNamespace>
-
-    <DebugType>portable</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-    <Platforms>AnyCPU</Platforms>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MeCab.DotNet\MeCab.DotNet.csproj" />
+    <ProjectReference Include="..\..\MeCab.DotNet\MeCab.DotNet.csproj" />
   </ItemGroup>
 
   <ItemGroup>
