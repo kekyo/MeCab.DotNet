@@ -1,6 +1,6 @@
 # MeCab.DotNet
 
-A Japanese language morphological analysis engine for .NET Core.
+A Japanese language morphological analysis engine for .NET 7,6,5, .NET Core and .NET Framework.
 
 ![MeCab.DotNet](Images/MeCab.DotNet-120.png)
 
@@ -16,22 +16,26 @@ NOTE: We will merge both MeCab.DotNet and NMeCab in future release. [See related
 
 ["NMeCab"](https://ja.osdn.net/projects/nmecab/) is a re-implementation of MeCab engine on .NET Framework 2.0 managed library, but didn't update long time (looks like suspended...) --> [Revived here (GitHub)](https://github.com/komutan/NMeCab)
 
-"MeCab.DotNet" (this project) is a ported of NMeCab on .NET Core 1/2/3 and .NET Frameworks and packed into NuGet format.
+"MeCab.DotNet" (this project) is a ported of NMeCab on .NET, .NET Core and .NET Frameworks and packed into NuGet format.
 
 # How to use
 
 MeCab.DotNet targetted platforms:
-* .NET 5
-* .NET Core 1/2/3 (Built on .NET Standard 1.3/2.0/2.1)
-* .NET Framework 2.0/3.5/4.0/4.5 (3.5 and 4.0 are Client profile, 2.0 doesn't include extension methods)
+
+* .NET 7, 6, 5
+* .NET Core 3.1 to 2.0
+* .NET Standard 2.1 to 1.3
+* .NET Framework 4.8.1 to 2.0 (3.5 and 4.0 are Client profile, 2.0 doesn't include extension methods)
 
 Changed from NMeCab:
+
 * Wider .NET platform supporting and deprecated PCL libraries.
 * Changed namespace `NMeCab` to `MeCab`.
 * Removed App.config based configuration (You can only use `MeCabParam` for additional configuration parameters.)
 * Added more usable methods.
 
 Enabling steps:
+
 1. [Install from NuGet named "MeCab.DotNet"](https://www.nuget.org/packages/MeCab.DotNet).
 2. Usually you'll use default dictionary named IPADIC, the package will append `dic` folder into your project automatically. But have to declare `MeCabUseDefaultDictionary` property and set value to `False` inside `PropertyGroup` in csproj if you wanna use your own dictionary.
 3. Build and run!
@@ -116,4 +120,5 @@ let main argv =
 ```
 
 # License
+
 Under GPL2, LGPL2.1 derived from NMeCab project.
