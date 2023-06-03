@@ -1,3 +1,9 @@
 @echo off
-rem dotnet pack -p:Configuration=Release -o artifacts MeCab.DotNet\MeCab.DotNet.csproj
-msbuild -t:pack -p:Configuration=Release -p:PackageOutputPath=..\artifacts MeCab.DotNet\MeCab.DotNet.csproj
+
+echo.
+echo "==========================================================="
+echo "Build MeCab.DotNet"
+echo.
+
+dotnet build -p:Configuration=Release MeCab.DotNet.sln
+dotnet pack -p:Configuration=Release -o artifacts MeCab.DotNet.sln

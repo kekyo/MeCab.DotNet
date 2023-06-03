@@ -208,6 +208,7 @@ namespace MeCab
         /// 解析を行い結果を確からしいものから順番に取得する
         /// </summary>
         /// <param name="str">解析対象の文字列へのポインタ</param>
+        /// <param name="len"></param>
         /// <returns>文頭の形態素を確からしい順に取得するための列挙子の公開</returns>
         public unsafe IEnumerable<MeCabNode> ParseNBestToNode(char* str, int len)
         {

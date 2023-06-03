@@ -67,7 +67,16 @@ namespace MeCab
 
         public string RcFile { get; set; }
 
-#if NETSTANDARD1_3
+#if !NETSTANDARD1_3
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        public MeCabParam() :
+            this(null)
+        {
+        }
+#endif
+
         /// <summary>
         /// コンストラクタ
         /// </summary>
@@ -75,29 +84,28 @@ namespace MeCab
         /// <remarks>netstandard1.3では、デフォルトのdicフォルダパスを自動的に構成できないため、
         /// 引数に指定する必要があります。</remarks>
         public MeCabParam(string dicdir)
-#else
-        /// <summary>
-        /// コンストラクタ
-        /// </summary>
-        public MeCabParam()
-#endif
         {
             this.Theta = MeCabParam.DefaultTheta;
             this.RcFile = MeCabParam.DefaultRcFile;
 
-#if !NETSTANDARD1_3
-            // In unit test context, the current folder path is set unstable.
-#if NETFRAMEWORK
-            var assemblyFolderPath = Path.GetDirectoryName(
-                this.GetType().Assembly.Location);
+            if (dicdir == null)
+            {
+#if NETSTANDARD1_3
+                throw new ArgumentNullException();
 #else
-            var assemblyFolderPath = AppContext.BaseDirectory;
+                // In unit test context, the current folder path is set unstable.
+#if NETFRAMEWORK
+                var assemblyFolderPath = Path.GetDirectoryName(
+                    this.GetType().Assembly.Location);
+#else
+                var assemblyFolderPath = AppContext.BaseDirectory;
 #endif
-            var inPackagePath = CombinePath(assemblyFolderPath!, "..", "InPackage");
-            var dicdir = File.Exists(inPackagePath) ?
-                CombinePath(assemblyFolderPath, "..", "..", "content", "dic") :
-                CombinePath(assemblyFolderPath, "dic");
+                var inPackagePath = CombinePath(assemblyFolderPath!, "..", "InPackage");
+                dicdir = File.Exists(inPackagePath) ?
+                    CombinePath(assemblyFolderPath, "..", "..", "content", "dic") :
+                    CombinePath(assemblyFolderPath, "dic");
 #endif
+            }
 
             this.DicDir = dicdir;
             this.UserDic = new string[0];
