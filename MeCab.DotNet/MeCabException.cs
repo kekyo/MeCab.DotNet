@@ -6,7 +6,7 @@ using System;
 
 namespace MeCab
 {
-#if NET20 || NET35 || NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
+#if NETFRAMEWORK || NETSTANDARD2_0_OR_GREATER || NETCOREAPP
     using System.Runtime.Serialization;
 
     [Serializable]
@@ -21,7 +21,7 @@ namespace MeCab
             : base(message, ex)
         { }
 
-#if NET20 || NET35 || NET40 || NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
+#if NETFRAMEWORK || NETSTANDARD2_0_OR_GREATER || NETCOREAPP
         public MeCabException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         { }
