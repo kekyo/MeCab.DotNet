@@ -1,6 +1,6 @@
 # MeCab.DotNet
 
-A Japanese language morphological analysis engine for .NET 7,6,5, .NET Core and .NET Framework.
+A Japanese language morphological analysis engine for .NET, .NET Core and .NET Framework.
 
 ![MeCab.DotNet](Images/MeCab.DotNet-120.png)
 
@@ -22,7 +22,7 @@ NOTE: We will merge both MeCab.DotNet and NMeCab in future release. [See related
 
 MeCab.DotNet targetted platforms:
 
-* .NET 7, 6, 5
+* .NET 8 to 5
 * .NET Core 3.1 to 2.0
 * .NET Standard 2.1 to 1.3
 * .NET Framework 4.8.1 to 2.0 (3.5 and 4.0 are Client profile, 2.0 doesn't include extension methods)

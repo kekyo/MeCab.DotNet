@@ -1,6 +1,6 @@
 # MeCab.DotNet
 
-日本語形態素解析エンジン for .NET 7,6,5, .NET Core and .NET Framework.
+日本語形態素解析エンジン for .NET, .NET Core and .NET Framework.
 
 ![MeCab.DotNet](Images/MeCab.DotNet-120.png)
 
@@ -16,7 +16,7 @@ NOTE: 将来的に、MeCab.DotNetとNMeCabを統合する作業をしていま�
 
 ["NMeCab"](https://ja.osdn.net/projects/nmecab/) は、上記MeCabを、.NET Framework 2.0のマネージライブラリとして実装し直したものです。ただ、もう更新されていないようです...  --> [GitHubで復活しました](https://github.com/komutan/NMeCab)
 
-"MeCab.DotNet" （このプロジェクト）は、上記NMeCabを最新の.NET 7,6,5, .NET Coreと.NET Frameworkで使えるように移植し、NuGetのパッケージに固めて使いやすくしたものです。
+"MeCab.DotNet" （このプロジェクト）は、上記NMeCabを最新の.NET, .NET Coreと.NET Frameworkで使えるように移植し、NuGetのパッケージに固めて使いやすくしたものです。
 
 形態素解析とは、任意の日本語の文書を入力として、その文字や単語が日本語文法的に何であるのかを解析するというものです。これを使うと、自由に書かれた日本語の文脈に沿って、文書文字列を機械的に解析することが出来るようになります。
 サンプルコードを参照すれば、おおよその使い方が理解できると思います。
@@ -25,7 +25,7 @@ NOTE: 将来的に、MeCab.DotNetとNMeCabを統合する作業をしていま�
 
 MeCab.DotNetのターゲットプラットフォームです:
 
-* .NET 7, 6, 5
+* .NET 8 to 5
 * .NET Core 3.1 to 2.0
 * .NET Standard 2.1 to 1.3
 * .NET Framework 4.8.1 to 2.0 (3.5と4.0はClient profile, 2.0は拡張メソッドは非対応)
