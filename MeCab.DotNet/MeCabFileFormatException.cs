@@ -39,6 +39,9 @@ namespace MeCab
         }
 
 #if NETFRAMEWORK || NETSTANDARD2_0_OR_GREATER || NETCOREAPP
+#if NET8_0_OR_GREATER
+        [Obsolete("This API supports obsolete formatter-based serialization. It should not be called or extended by application code.")]
+#endif
         public MeCabFileFormatException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
@@ -48,6 +51,9 @@ namespace MeCab
 
 #if !NET5_0_OR_GREATER
         [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
+#endif
+#if NET8_0_OR_GREATER
+        [Obsolete("This API supports obsolete formatter-based serialization. It should not be called or extended by application code.")]
 #endif
         public override void GetObjectData(SerializationInfo info, StreamingContext context)
         {
